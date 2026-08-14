@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "282 CHDS BYPASS",
+  "description": "Automated Facebook/Meta appeal submission (8 forms + refreshes).",
+  "version": "1.0",
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon48.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.facebook.com/help/contact/*",
+        "https://www.meta.com/help/policies/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
