@@ -1,21 +1,39 @@
+
 {
+  /* -----------------  Basic extension info  ----------------- */
   "manifest_version": 3,
   "name": "282 CHDS BYPASS",
   "description": "Automated Facebook/Meta appeal submission (8 forms + refreshes).",
   "version": "1.0",
+
+  /* -----------------  Icons  ----------------- */
   "icons": {
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icons/icon48.png"
+
+  /* -----------------  Firefox‑only settings  ----------------- */
+  "browser_specific_settings": {
+    "gecko": {
+      /* A unique UUID – you can generate one at https://www.ietf.org/rfc/rfc4122.txt or any UUID generator */
+      "id": "{e3a9c7a1-6a1f-4f2b-9b4e-9b5f3d2c1a7c}"
+    }
   },
+
+  /* -----------------  Permissions  ----------------- */
   "permissions": [
     "storage",
     "tabs",
+    "activeTab",
     "scripting"
   ],
+
+  /* -----------------  Background script  ----------------- */
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  /* -----------------  Content scripts  ----------------- */
   "content_scripts": [
     {
       "matches": [
@@ -24,5 +42,11 @@
       ],
       "js": ["content.js"]
     }
-  ]
+  ],
+
+  /* -----------------  Popup (toolbar button)  ----------------- */
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon48.png"
+  }
 }
